@@ -8,31 +8,42 @@ Instruction files and skills for building LangChain and LangGraph systems with A
 
 ```
 langvibes/
+├── CLAUDE.md                          # Claude Code — always-on instructions
 ├── requirements.txt
 ├── .claude/
-│   └── skills/
-│       ├── langchain-core/    # Models, prompts, LCEL, memory
-│       ├── langgraph-agents/  # StateGraph, checkpointers, HITL, streaming
-│       ├── langchain-tools/   # Tool definition, ToolNode, binding
-│       └── langchain-rag/     # Loaders, splitters, embeddings, RAG chains
+│   └── skills/                        # Claude Code — triggered skills
+│       ├── langchain-core/SKILL.md
+│       ├── langgraph-agents/SKILL.md
+│       ├── langchain-tools/SKILL.md
+│       └── langchain-rag/SKILL.md
 ├── .github/
-│   └── copilot-instructions.md
+│   ├── copilot-instructions.md        # Copilot — always-on instructions
+│   └── skills/                        # Copilot — agent skills
+│       ├── langchain-core/SKILL.md
+│       ├── langgraph-agents/SKILL.md
+│       ├── langchain-tools/SKILL.md
+│       └── langchain-rag/SKILL.md
 └── .kiro/
-    └── steering/
-        ├── agentic-design.md  # Always loaded — design principles
-        ├── langchain-core.md
-        ├── langgraph-agents.md
-        ├── langchain-tools.md
-        └── langchain-rag.md
+    ├── steering/                      # Kiro — always-on / fileMatch context
+    │   ├── agentic-design.md
+    │   ├── langchain-core.md
+    │   ├── langgraph-agents.md
+    │   ├── langchain-tools.md
+    │   └── langchain-rag.md
+    └── skills/                        # Kiro — invocable skills
+        ├── langchain-core/SKILL.md
+        ├── langgraph-agents/SKILL.md
+        ├── langchain-tools/SKILL.md
+        └── langchain-rag/SKILL.md
 ```
 
 ### How each agent uses these files
 
-| Agent | File(s) | How it loads |
+| Agent | Always-on | Triggered skills |
 |---|---|---|
-| **Claude Code** | `.claude/skills/*/SKILL.md` | Auto-triggered by imports and keywords |
-| **GitHub Copilot** | `.github/copilot-instructions.md` | Always in context for every Copilot Chat session |
-| **Kiro** | `.kiro/steering/*.md` | `agentic-design.md` always; rest on Python file open |
+| **Claude Code** | `CLAUDE.md` — always in context | `.claude/skills/` — triggered by imports and keywords |
+| **GitHub Copilot** | `.github/copilot-instructions.md` — every chat session | `.github/skills/` — auto-triggered or `/skill-name` |
+| **Kiro** | `.kiro/steering/` — always or on Python file open | `.kiro/skills/` — auto-triggered or `/skill-name` |
 
 ---
 
