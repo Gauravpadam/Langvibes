@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+.env.*
+
+# Vector store indexes
+faiss_index/
+chroma_db/
+*.db
+
+# LangSmith / LangChain local cache
+.langchain.db
+
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# Checkpoints
+checkpoints/

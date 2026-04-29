@@ -1,0 +1,44 @@
+# LangChain / LangGraph — pinned to latest stable (LTS) versions
+# Last updated: 2026-04-30
+# Python >= 3.11 recommended
+
+# Core
+langchain==1.2.15
+langchain-core==1.3.2
+langchain-text-splitters==1.1.2
+
+# LangGraph
+langgraph==1.1.10
+
+# Model providers
+langchain-aws==1.4.5          # Primary — Anthropic via AWS Bedrock
+langchain-anthropic==1.4.2   # Direct Anthropic API (alternative to Bedrock)
+
+# Community integrations (loaders, vector stores, chat history)
+langchain-community==0.4.1
+
+# AWS SDK — required by langchain-aws
+boto3==1.42.97
+
+# Vector stores (install as needed)
+langchain-chroma==1.1.0       # Chroma — local persistent vector store
+faiss-cpu==1.13.2             # FAISS — local in-memory vector store (no server needed)
+
+# Optional — multi-agent supervisor pattern
+# langgraph-supervisor         # pip install langgraph-supervisor
+
+# Optional — LangGraph Platform checkpointers (production persistence)
+# langgraph-checkpoint-sqlite  # pip install langgraph-checkpoint-sqlite
+# langgraph-checkpoint-postgres # pip install langgraph-checkpoint-postgres
+
+# Optional — observability
+# langsmith                    # pip install langsmith
+#
+# Enable tracing with:
+#   LANGCHAIN_TRACING_V2=true
+#   LANGCHAIN_API_KEY=<your-key>
+#   LANGCHAIN_PROJECT=<your-project>
+
+# Optional — web search tools
+# langchain-community includes DuckDuckGoSearchRun (no API key)
+# For Tavily: pip install tavily-python (requires TAVILY_API_KEY)
