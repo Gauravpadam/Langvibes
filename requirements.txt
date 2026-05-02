@@ -24,6 +24,9 @@ boto3==1.42.97
 langchain-chroma==1.1.0       # Chroma — local persistent vector store
 faiss-cpu==1.13.2             # FAISS — local in-memory vector store (no server needed)
 
+# MCP (Model Context Protocol) adapter
+langchain-mcp-adapters==0.2.2  # Requires Node.js >= 18 for npx-based MCP servers
+
 # Optional — multi-agent supervisor pattern
 # langgraph-supervisor         # pip install langgraph-supervisor
 
